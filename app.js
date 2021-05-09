@@ -1,16 +1,15 @@
 const express = require('express')
-const app = express()
+const app = express();
 
-app.get('/',  (req, res) => {
-    res.send('Home page');
-})
+// Servir Contenido estatico
+app.use(express.static('public'));
 
 app.get('/hola-mundo',  (req, res) => {
     res.send('Hola Mundo desde su respectiva pagina');
 })
 
 app.get('*',  (req, res) => {
-    res.send('404 | Page not Found');
+    res.sendFile(__dirname + '/public/404.html');
  })
 
  
