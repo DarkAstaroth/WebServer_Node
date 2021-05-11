@@ -1,6 +1,10 @@
 const express = require('express')
 const app = express();
 
+// cargar las variables de entorno
+require('dotenv').config();
+const port = process.env.PORT;
+
 const hbs = require('hbs');
 
 // handlebars
@@ -43,4 +47,6 @@ app.get('*',  (req, res) => {
  })
 
  
-app.listen(8080);
+app.listen(port, () => {
+    console.log(`Example app listening at http://localhost:${port}`)
+});
